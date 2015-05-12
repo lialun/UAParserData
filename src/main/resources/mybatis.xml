@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="mybatis.properties"/>
+    <typeAliases>
+        <typeAlias alias="Browser" type="li.allan.domain.Browser"/>
+        <typeAlias alias="BrowserType" type="li.allan.domain.BrowserType"/>
+        <typeAlias alias="DeviceType" type="li.allan.domain.DeviceType"/>
+        <typeAlias alias="OperationSystem" type="li.allan.domain.OperationSystem"/>
+        <typeAlias alias="VersionAlias" type="li.allan.domain.OperationSystemVersionAlias"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="jdbc"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="li/allan/mapper/BrowserMapper.xml"/>
+        <mapper resource="li/allan/mapper/BrowserTypeMapper.xml"/>
+        <mapper resource="li/allan/mapper/DeviceTypeMapper.xml"/>
+        <mapper resource="li/allan/mapper/OperationSystemMapper.xml"/>
+        <mapper resource="li/allan/mapper/VersionAliasMapper.xml"/>
+    </mappers>
+</configuration>
