@@ -3,11 +3,11 @@
 <configuration>
     <properties resource="mybatis.properties"/>
     <typeAliases>
-        <typeAlias alias="Browser" type="li.allan.domain.Browser"/>
-        <typeAlias alias="BrowserType" type="li.allan.domain.BrowserType"/>
+        <typeAlias alias="Agent" type="li.allan.domain.Agent"/>
+        <typeAlias alias="AgentType" type="li.allan.domain.AgentType"/>
         <typeAlias alias="DeviceType" type="li.allan.domain.DeviceType"/>
-        <typeAlias alias="OperationSystem" type="li.allan.domain.OperationSystem"/>
-        <typeAlias alias="VersionAlias" type="li.allan.domain.OperationSystemVersionAlias"/>
+        <typeAlias alias="OS" type="li.allan.domain.OS"/>
+        <typeAlias alias="OSVersionAlias" type="li.allan.domain.OSVersionAlias"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -21,10 +21,10 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="li/allan/mapper/BrowserMapper.xml"/>
-        <mapper resource="li/allan/mapper/BrowserTypeMapper.xml"/>
+        <mapper resource="li/allan/mapper/AgentMapper.xml"/>
+        <mapper resource="li/allan/mapper/AgentTypeMapper.xml"/>
         <mapper resource="li/allan/mapper/DeviceTypeMapper.xml"/>
-        <mapper resource="li/allan/mapper/OperationSystemMapper.xml"/>
-        <mapper resource="li/allan/mapper/VersionAliasMapper.xml"/>
+        <mapper resource="li/allan/mapper/OSMapper.xml"/>
+        <mapper resource="li/allan/mapper/OSVersionAliasMapper.xml"/>
     </mappers>
 </configuration>

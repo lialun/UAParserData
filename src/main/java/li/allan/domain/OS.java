@@ -1,6 +1,6 @@
 package li.allan.domain;
 
-public class OperationSystem {
+public class OS {
     private int id;
     private String name;
     private int deviceType;

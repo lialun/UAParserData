@@ -1,13 +1,13 @@
 package li.allan.domain;
 
-public class BrowserType {
+public class AgentType {
     int id;
     String name;
 
-    public BrowserType() {
+    public AgentType() {
     }
 
-    BrowserType(int id, String name) {
+    AgentType(int id, String name) {
         this.id = id;
         this.name = name;
     }

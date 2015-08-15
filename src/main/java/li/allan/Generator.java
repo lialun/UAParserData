@@ -18,19 +18,19 @@ public class Generator {
             //
             session = MybatisUtils.getSqlSession();
             //
-            BrowserMapper browserMapper = session.getMapper(BrowserMapper.class);
-            BrowserTypeMapper browserTypeMapper = session.getMapper(BrowserTypeMapper.class);
+            AgentMapper browserMapper = session.getMapper(AgentMapper.class);
+            AgentTypeMapper browserTypeMapper = session.getMapper(AgentTypeMapper.class);
             DeviceTypeMapper deviceTypeMapper = session.getMapper(DeviceTypeMapper.class);
-            OperationSystemMapper operationSystemMapper = session.getMapper(OperationSystemMapper.class);
-            OperationSystemVersionAliasMapper versionAliasMapper = session.getMapper(OperationSystemVersionAliasMapper.class);
+            OSMapper operationSystemMapper = session.getMapper(OSMapper.class);
+            OSVersionAliasMapper versionAliasMapper = session.getMapper(OSVersionAliasMapper.class);
             //
-            List<Browser> browser = browserMapper.selectAll();
-            List<BrowserType> browserType = browserTypeMapper.selectAll();
+            List<Agent> browser = browserMapper.selectAll();
+            List<AgentType> agentType = browserTypeMapper.selectAll();
             List<DeviceType> deviceType = deviceTypeMapper.selectAll();
-            List<OperationSystem> operationSystem = operationSystemMapper.selectAll();
-            List<OperationSystemVersionAlias> operationSystemVersionAliases = versionAliasMapper.selectAll();
+            List<OS> OS = operationSystemMapper.selectAll();
+            List<OSVersionAlias> OSVersionAliases = versionAliasMapper.selectAll();
             //
-            Data data = new Data(browser, browserType, deviceType, operationSystem, operationSystemVersionAliases);
+            Data data = new Data(browser, agentType, deviceType, OS, OSVersionAliases);
             System.out.print(JSONObject.toJSONString(data, true));
             Files.write(JSONObject.toJSONString(data, false).getBytes(), new File("D:\\IdeaProject\\uaparser\\src\\main\\resources\\uaparser.json"));
             //
@@ -40,59 +40,39 @@ public class Generator {
     }
 
     static class Data {
-        private List<Browser> browser;
-        private List<BrowserType> browserType;
+        private List<Agent> agent;
+        private List<AgentType> agentType;
         private List<DeviceType> deviceType;
-        private List<OperationSystem> operationSystem;
-        private List<OperationSystemVersionAlias> operationSystemVersionAliases;
+        private List<OS> os;
+        private List<OSVersionAlias> OSVersionAliases;
 
-        public Data(List<Browser> browser, List<BrowserType> browserType, List<DeviceType> deviceType, List<OperationSystem>
-                operationSystem, List<OperationSystemVersionAlias> operationSystemOperationSystemVersionAliases) {
-            this.browserType = browserType;
-            this.browser = browser;
+        public Data(List<Agent> agent, List<AgentType> agentType, List<DeviceType> deviceType, List<OS>
+                os, List<OSVersionAlias> osVersionAliases) {
+            this.agentType = agentType;
+            this.agent = agent;
             this.deviceType = deviceType;
-            this.operationSystem = operationSystem;
-            this.operationSystemVersionAliases = operationSystemOperationSystemVersionAliases;
+            this.os = os;
+            this.OSVersionAliases = osVersionAliases;
         }
 
-        public List<BrowserType> getBrowserType() {
-            return browserType;
+        public List<Agent> getAgent() {
+            return agent;
         }
 
-        public void setBrowserType(List<BrowserType> browserType) {
-            this.browserType = browserType;
-        }
-
-        public List<Browser> getBrowser() {
-            return browser;
-        }
-
-        public void setBrowser(List<Browser> browser) {
-            this.browser = browser;
+        public List<AgentType> getAgentType() {
+            return agentType;
         }
 
         public List<DeviceType> getDeviceType() {
             return deviceType;
         }
 
-        public void setDeviceType(List<DeviceType> deviceType) {
-            this.deviceType = deviceType;
+        public List<OS> getOs() {
+            return os;
         }
 
-        public List<OperationSystem> getOperationSystem() {
-            return operationSystem;
-        }
-
-        public void setOperationSystem(List<OperationSystem> operationSystem) {
-            this.operationSystem = operationSystem;
-        }
-
-        public List<OperationSystemVersionAlias> getOperationSystemVersionAliases() {
-            return operationSystemVersionAliases;
-        }
-
-        public void setOperationSystemVersionAliases(List<OperationSystemVersionAlias> operationSystemVersionAliases) {
-            this.operationSystemVersionAliases = operationSystemVersionAliases;
+        public List<OSVersionAlias> getOSVersionAliases() {
+            return OSVersionAliases;
         }
     }
 }

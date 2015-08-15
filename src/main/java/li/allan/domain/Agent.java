@@ -1,19 +1,10 @@
 package li.allan.domain;
 
-public class Browser {
-    private int id;
+public class Agent {
     private int type;
     private String name;
     private String regex;
     private String homepage;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getType() {
         return type;

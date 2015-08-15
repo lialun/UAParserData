@@ -1,18 +1,18 @@
 package li.allan.domain;
 
-public class OperationSystemVersionAlias {
-    private int os;
+public class OSVersionAlias {
+    private String os;
     private String regex;
     private String major;
     private String minor;
     private String revision;
     private String codename;
 
-    public int getOs() {
+    public String getOs() {
         return os;
     }
 
-    public void setOs(int os) {
+    public void setOs(String os) {
         this.os = os;
     }
 
